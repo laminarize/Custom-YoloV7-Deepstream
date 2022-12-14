@@ -3,12 +3,12 @@ Comprehensive guide to train SOTA Yolov7 models on custom data then accelerate a
 
 ## Gather Data
 
-# Label Data using KITTI format - CVAT
+## Label Data using KITTI format - CVAT
 
-# Train YoloV7 model
+## Train YoloV7 model
 
-# Reparameterize model
+## Reparameterize model
 
-# Convert model to C using Deepstream repo
+## Convert model to C using Deepstream repo
 
-# Launch live inference
+## Launch live inference
