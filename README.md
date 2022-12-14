@@ -1,10 +1,7 @@
 # Custom YoloV7 object detection -> Deepstream
 Step by step guide to train SOTA Yolov7 models on custom data then accelerate and deploy on Nvidia Jetson through Deepstream.
 
-To complete this guide you will need: 
-
-  1. Machine with CUDA enabled GPU. YoloV7 standard with 8 workers and batch size of 16 used ~20GB of VRAM in training.
-  2. Nvidia Jetson device with Deepstream 6.1/6.1.1 installed
+I put this together because as I started down my journey to train the YoloV7 model on a custom dataset I found that the repos that were available required heavy modification in order to work together. This is a culmination of learnings from across the official Yolov7 github repo found here (https://github.com/WongKinYiu/yolov7), the Yolo Deepstream repo found here (https://github.com/marcoslucianops/DeepStream-Yolo), and of course the Nvidia documentation for deepstream found here (https://docs.nvidia.com/metropolis/deepstream/dev-guide/).
 
 ## Gather Data
 
