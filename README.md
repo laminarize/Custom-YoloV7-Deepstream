@@ -17,6 +17,7 @@ Computer vision models cannot be built in a vaccuum without considering the devi
 The distortions that your model will be trained under can be found in yolov7/data in the hyperparameter tuning yaml files. These include:
 
 hsv_h: 0.015  # image HSV-Hue augmentation (fraction)
+
 hsv_s: 0.7  # image HSV-Saturation augmentation (fraction)
 hsv_v: 0.4  # image HSV-Value augmentation (fraction)
 degrees: 0.0  # image rotation (+/- deg)
