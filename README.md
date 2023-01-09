@@ -32,7 +32,7 @@ The distortions that your model will be trained under can be found in yolov7/dat
 
 
 ## Label Data using YOLO 1.1 format - CVAT
-Install CVAT by navigating to cvat.org. I installed it as a containerized locally hosted server application and used it at localhost:8080. By default YOLOv7 is expecting your data to be labeled using rectangles and exported in yolo 1.1 format. More on the training/test data later. Be sure to label all objects of interest across the image - even when the object is obstructed and/or at edge of image.
+Install CVAT by navigating to https://cvat.org. I installed it as a containerized locally hosted server application and used it at localhost:8080. By default YOLOv7 is expecting your data to be labeled using rectangles and exported in yolo 1.1 format. More on the training/test data later. Be sure to label all objects of interest across the image - even when the object is obstructed and/or at edge of image.
 
 ## Train YoloV7 model
 
