@@ -37,7 +37,7 @@ Copy provided loss.py file in ~/yolov7/utils. This file encorporates some bug fi
 
 From here you will want to create and activate a python virtual environment to avoid contaminating your OS's python installation in the event of package installation errors and dependency incompatability.
 
-# apt install required packages within python virtual env
+apt install required packages
 - apt update
 - apt install -y zip htop screen libgl1-mesa-glx
 
