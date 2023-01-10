@@ -33,6 +33,8 @@ The distortions that your model will be trained under can be found in yolov7/dat
 Install CVAT by navigating to https://cvat.org. I installed it as a containerized locally hosted server application and used it at localhost:8080. By default YOLOv7 is expecting your data to be labeled using rectangles and exported in yolo 1.1 format. More on the training/test data later. Be sure to label all objects of interest across the image - even when the object is obstructed and/or at edge of image.
 
 ## Train YoloV7 model
+Copy provided loss.py file in ~/yolov7/utils. This file encorporates some bug fixes in handling the numpy indices.
+
 From here you will want to create and activate a python virtual environment to avoid contaminating your OS's python installation in the event of package installation errors and dependency incompatability.
 
 # apt install required packages within python virtual env
@@ -42,11 +44,14 @@ From here you will want to create and activate a python virtual environment to a
 - cd ~/
 - git clone https://github.com/WongKinYiu/yolov7.git
 - cd ~/yolov7
+
+Copy provided loss.py file in ~/yolov7/utils. This file encorporates some bug fixes in handling the numpy indices.
+
 - python3 -m venv yolov7training
 - source yolov7training/bin/activate
 - pip3 install -r requirements.txt
 
-The yolov7 implenetation uses train and val folders that should be placed in the root directory of the project prior to training. Split your dataset into a typical 80/20 - train/val or something similar fraction. In both train and val create subfolders called images and labels and place the images and label files in their respective folders.
+The yolov7 implementation uses train and val folders that should be placed in the root directory of the project prior to training. Split your dataset into a typical 80/20 - train/val or something similar fraction. In both train and val create subfolders called images and labels and place the images and label files in their respective folders.
 
 To train the model you will need to create a file under yolov7/data called custom.yaml. You can copy and paste the file from this repo to that directory for use in training.
 
