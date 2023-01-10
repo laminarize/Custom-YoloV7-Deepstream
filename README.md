@@ -1,5 +1,3 @@
-#REPO IS WORK IN PROGRESS
-
 # Custom YOLOv7 object detection -> Deepstream
 Step by step guide to train SOTA Yolov7 models on custom data then accelerate and deploy on Nvidia Jetson through Deepstream. This repo will be absent of specific data or trained model for the time being to protect the sensitive nature of the model developed in the process of piecing together these components.
 
