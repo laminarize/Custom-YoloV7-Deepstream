@@ -45,17 +45,20 @@ apt install required packages
 - git clone https://github.com/WongKinYiu/yolov7.git
 - cd ~/yolov7
 
-Copy provided loss.py file in ~/yolov7/utils. This file encorporates some bug fixes in handling the numpy indices.
-
+Create Python virtual environment:
 - python3 -m venv yolov7training
 - source yolov7training/bin/activate
+
+Install Python dependencies:
 - pip3 install -r requirements.txt
 
-The yolov7 implementation uses train and val folders that should be placed in the root directory of the project prior to training. Split your dataset into a typical 80/20 - train/val or something similar fraction. In both train and val create subfolders called images and labels and place the images and label files in their respective folders.
+Copy provided loss.py file in ~/yolov7/utils. This file encorporates some bug fixes in handling the numpy indices.
 
-To train the model you will need to create a file under yolov7/data called custom.yaml. You can copy and paste the file from this repo to that directory for use in training.
+The yolov7 implementation uses train and val folders that should be placed in the root directory of the project prior to training. Split your dataset into a typical 80/20 - train/val or some similar fraction. In both train and val create subfolders called images and labels and place the images and label files in their respective folders.
 
-You will also need to download the respective yolov7 model that you wish to train and put it in the root directory.
+To train the model you will need to create a file under ~/yolov7/data called custom.yaml. You can copy and paste the file from this repo to that directory for use in training.
+
+You will also need to download the respective yolov7 model that you wish to train and put it in the project root directory ~/yolov7.
 
 Training YoloV7 or V7x:
 - python3 train.py --workers 16 --device 0 --batch-size 16 --epoch 100 --data data/custom.yaml --img 640 640 --cfg cfg/training/yolov7x.yaml --weights 'yolov7x_training.pt' --name yolov7x-custom --hyp data/hyp.scratch.custom.yaml
@@ -73,6 +76,6 @@ Run respective reparameterization.ipynb section depending on which model was use
 - sys.path.insert(2, 'ABSOLUTE PATH TO /utils')
 
 ## Convert model for use in C++ using Deepstream
-You will now have a trained yolov7 model ready for deploying on the edge for live inferencing. One available option is the Deepstream application built by Nvidia. A wonderful repo which can by used to build a C++ application for streaming exists here https://github.com/marcoslucianops/DeepStream-Yolo.
+You will now have a trained yolov7 model ready for deploying on the edge for live inferencing. One available option for edge deployment is the Deepstream application built by Nvidia. A wonderful repo which can by used to build a C++ application for streaming exists here https://github.com/marcoslucianops/DeepStream-Yolo.
 
-Copy your trained .pt model file to the root directory of the Deepstream-yolo repo which you can clone and execute .make file to build a C++ application which can be used for reapid live inference. C++ interacts with memory and hardware at a closer level in the OS than Python thereby increasing inference speed. Additional benefits of deploying your trained model in Deepstream is the built in metadata messaging broker which can communicate detected classes to Azure or other cloud platform of your choosing. See Nvidia Deepstream documentation for more detail on the message broker.
+Copy your trained .pt model file to the root directory of the cloned Deepstream-yolo repo and execute .make file to build a C++ application which can be used for rapid live inference. C++ interacts with memory and hardware at a closer level in the OS than Python thereby increasing inference speed. Additional benefits of deploying your trained model in Deepstream is the built in metadata messaging broker which can communicate detected classes to Azure or other cloud platform of your choosing. See Nvidia Deepstream documentation for more detail on the message broker.
