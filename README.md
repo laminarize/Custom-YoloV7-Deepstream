@@ -37,20 +37,29 @@ Copy provided loss.py file in ~/yolov7/utils. This file encorporates some bug fi
 
 From here you will want to create and activate a python virtual environment to avoid contaminating your OS's python installation in the event of package installation errors and dependency incompatability.
 
-apt install required packages
-- apt update
-- apt install -y zip htop screen libgl1-mesa-glx
+```
+# apt install required packages
+apt update
+apt install -y zip htop screen libgl1-mesa-glx
+```
 
-- cd ~/
-- git clone https://github.com/WongKinYiu/yolov7.git
-- cd ~/yolov7
+```
+# Clone yolov7 github repo
+cd ~/
+git clone https://github.com/WongKinYiu/yolov7.git
+cd ~/yolov7
+```
 
-Create Python virtual environment:
-- python3 -m venv yolov7training
-- source yolov7training/bin/activate
+```
+# Create and activate Python virtual environment:
+python -m venv yolov7training
+source yolov7training/bin/activate
+```
 
-Install Python dependencies:
-- pip3 install -r requirements.txt
+```
+# Install Python dependencies:
+pip install -r requirements.txt
+```
 
 Copy provided loss.py file in ~/yolov7/utils. This file encorporates some bug fixes in handling the numpy indices.
 
@@ -60,20 +69,26 @@ To train the model you will need to create a file under ~/yolov7/data called cus
 
 You will also need to download the respective yolov7 model that you wish to train and put it in the project root directory ~/yolov7.
 
-Training YoloV7 or V7x:
-- python3 train.py --workers 16 --device 0 --batch-size 16 --epoch 100 --data data/custom.yaml --img 640 640 --cfg cfg/training/yolov7x.yaml --weights 'yolov7x_training.pt' --name yolov7x-custom --hyp data/hyp.scratch.custom.yaml
+```
+# Training YoloV7 or V7x:
+python train.py --workers 16 --device 0 --batch-size 16 --epoch 100 --data data/custom.yaml --img 640 640 --cfg cfg/training/yolov7x.yaml --weights 'yolov7x_training.pt' --name yolov7x-custom --hyp data/hyp.scratch.custom.yaml
+```
 
-Training larger 1280x1280 models:
-- python3 train_aux.py --workers 8 --device 0 --batch-size 16 --epoch 100  --data data/custom.yaml --img 1280 --cfg cfg/training/yolov7-e6e.yaml --weights 'yolov7-e6e_training.pt' --name yolov7-e6e-custom --hyp data/hyp.scratch.custom.yaml
+```
+# Training larger 1280x1280 models:
+python train_aux.py --workers 8 --device 0 --batch-size 16 --epoch 100  --data data/custom.yaml --img 1280 --cfg cfg/training/yolov7-e6e.yaml --weights 'yolov7-e6e_training.pt' --name yolov7-e6e-custom --hyp data/hyp.scratch.custom.yaml
+```
 
 ## Reparameterize model
 Prior to deploying trained model for inference the model will need to be reparameterized. This process reduces size and complexity of the model without sacrificing accuracy or precision. 
 
 Run respective reparameterization.ipynb section depending on which model was used in training. One important note is since these files are not all in the same directory you may need to modify the top of the notebook by adding these lines to the import statement section:
-- import sys
-- sys.path.insert(0, 'ABSOLUTE PATH TO /models')
-- sys.path.insert(1, 'ABSOLUTE PATH TO yolov7 root')
-- sys.path.insert(2, 'ABSOLUTE PATH TO /utils')
+```
+import sys
+sys.path.insert(0, 'ABSOLUTE PATH TO /models')
+sys.path.insert(1, 'ABSOLUTE PATH TO "yolov7 root"')
+sys.path.insert(2, 'ABSOLUTE PATH TO /utils')
+```
 
 ## Convert model for use in C++ using Deepstream
 You will now have a trained yolov7 model ready for deploying on the edge for live inferencing. One available option for edge deployment is the Deepstream application built by Nvidia. A wonderful repo which can by used to build a C++ application for streaming exists here https://github.com/marcoslucianops/DeepStream-Yolo.
